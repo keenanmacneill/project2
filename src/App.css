@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&display=swap');
+
+html{
+  font-family: 'Orbitron', sans-serif;
+  cursor: default;
+}
+
+#homePageHeader{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+}
+
+#appendedHeader{
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+#headerTitle{
+  font-size: 2rem;
+  margin: 1rem;
+}
+
+#search{
+  width: 50rem;
+  height: 2.5rem;
+  margin: 1rem;
+  align-self: center;
+}
+
+#filterContainer{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: start;
+  gap: 1rem;
+  margin: 1rem;
+}
+
+#filter, #sort, #home{
+  width: 7.5rem;
+  height: 2.5rem;
+  font-size: 1.5rem;
+  font-style: italic;
+  align-self: center;
+}
+
+#add{
+  width: 10rem;
+  height: 2.5rem;
+  font-size: 1.5rem;
+  font-style: italic;
+  align-self: center;
+}
+
+#browse{
+  display: flex;
+  flex-flow: row wrap;
+  gap:1rem;
+  justify-content: center;
+}
+
+#browseTitle{
+  justify-self: center;
+}
+
+.characterCard{
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  border: 2px black solid;
+  width: 16rem;
+  overflow: hidden;
+}
+
+.characterCard>img{
+  width: 10rem;
+  height: 10rem;
+  object-fit: cover;
+  object-position:top;
+  margin-top: 1rem;
+}
+
+#random {
+  width:16rem;
+  height: 2rem;
+  display: flex;
+  justify-self: center;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem
+}
+
+#characterDetailsContainer{
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+
+#characterDetails{
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 5rem;
+  justify-content: center;
+  margin: 1rem
+}
+
+#detailImg {
+  width: 16rem;
+}
+
+#details{
+  width: 40rem;
+}
+
+#teamContainer{
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
