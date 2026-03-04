@@ -1,6 +1,6 @@
 import { useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
-import AppContext from './AppContext'
+import AppContext from '../../context/AppContext'
 
 export default function BrowseCharacter({ character }) {
   const { name, image } = character

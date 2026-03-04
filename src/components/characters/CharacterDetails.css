@@ -1,0 +1,148 @@
+#characterDetailsContainer{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  padding: 1.25rem 1rem;
+}
+
+/* top bar like the screenshot title strip */
+#detailsTopBar{
+  width: min(1200px, 95vw);
+  display:flex;
+  align-items:center;
+  justify-content:space-around;
+  gap: 1rem;
+
+  padding: .75rem 1rem;
+
+  border: 3px solid #1f3a63;
+  border-radius: 10px;
+
+  background: linear-gradient(90deg, rgba(255,140,0,.95), rgba(255,60,0,.85));
+  box-shadow: 0 8px 18px rgba(0,0,0,.55);
+  margin-bottom: 1rem;
+}
+
+#detailsName{
+  margin:0;
+  font-size: 2.2rem;
+  font-weight: 900;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color:#fff;
+  text-shadow: 2px 2px 0 #000;
+}
+
+/* main frame */
+#characterDetails{
+  width: min(1200px, 95vw);
+  display:flex;
+  gap: 1.5rem;
+
+  border: 3px solid #1f3a63;
+  border-radius: 10px;
+  overflow:hidden;
+
+  background: linear-gradient(180deg, #0c1f3f 0%, #08162c 100%);
+  box-shadow: 0 10px 30px rgba(0,0,0,.65);
+}
+
+/* left portrait panel */
+#detailImgWrap{
+  flex: 0 0 360px;
+  border-right: 3px solid #1f3a63;
+
+  background:
+    radial-gradient(circle at 35% 20%, rgba(255,160,0,0.55), transparent 55%),
+    radial-gradient(circle at 70% 40%, rgba(255,80,0,0.25), transparent 60%),
+    linear-gradient(180deg, #1b0f05, #070b14);
+}
+
+#detailImg{
+  width:100%;
+  height: 520px;
+  object-fit: cover;
+  object-position: top;
+  display:block;
+  filter: drop-shadow(0 0 14px rgba(255,140,0,.55));
+}
+
+/* right column */
+#details{
+  flex: 1;
+  padding: 1rem;
+  display:flex;
+  flex-direction:column;
+  gap: 1rem;
+}
+
+/* section panels */
+#detailsPanel, #statsPanel{
+  border: 2px solid rgba(31,58,99,.95);
+  border-radius: 10px;
+  overflow:hidden;
+  background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(0,0,0,0.12));
+  box-shadow: inset 0 0 0 2px rgba(0,0,0,.25);
+}
+
+#bioTitle, #statsTitle{
+  margin:0;
+  padding: .65rem .9rem;
+  color:#ffe600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+
+  background: linear-gradient(180deg, #112c55, #0a1c3c);
+  border-bottom: 2px solid rgba(31,58,99,.95);
+}
+
+#bioText{
+  margin:0;
+  padding: 1rem;
+  line-height: 1.6;
+}
+
+/* stat rows like the left info box */
+.statRow{
+  display:flex;
+  justify-content:space-between;
+  padding: .75rem 1rem;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.statRow:last-child{
+  border-bottom:none;
+}
+
+.statRow span:first-child{
+  opacity:.9;
+}
+
+.statRow span:last-child{
+  font-weight:700;
+}
+
+/* disabled button state keeps your palette */
+#add:disabled{
+  opacity: .55;
+  cursor:not-allowed;
+  transform:none;
+  box-shadow:none;
+}
+
+/* responsive */
+@media (max-width: 900px){
+  #characterDetails{
+    flex-direction:column;
+  }
+
+  #detailImgWrap{
+    flex: 0 0 auto;
+    border-right:none;
+    border-bottom: 3px solid #1f3a63;
+  }
+
+  #detailImg{
+    height: 320px;
+  }
+}

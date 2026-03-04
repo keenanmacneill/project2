@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
-import BrowseCharacter from "./BrowseCharacter"
-import HomePageHeader from "./HomePageHeader"
+import BrowseCharacter from "../characters/BrowseCharacter"
+import HomePageHeader from "../headers/HomePageHeader"
+import "./HomePage.css"
 
 export default function HomePage() {
   const [characters, setCharacters] = useState(null)
@@ -8,7 +9,10 @@ export default function HomePage() {
   useEffect(() => {
     fetch('https://dragonball-api.com/api/characters?limit=100')
       .then(res => res.json())
-      .then(data => setCharacters(data.items))
+      .then(data => {
+        const sortedArr = [...data.items].sort((a, b) => a.name.localeCompare(b.name))
+        setCharacters(sortedArr)
+      })
   }, [])
 
   if (!characters) return 'Loading...'

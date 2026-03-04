@@ -6,7 +6,7 @@ export default function HomePageHeader() {
   return (
     <div id='homePageHeader'>
       <p id='headerTitle'>PATH TO POWER</p>
-      <input id='search' type="search" placeholder="Search Characters..." />
+      <input id='search' type="search" placeholder="Search Characters..." disabled='true' />
       <div id='filterContainer'>
         <button id='filter' disabled='true'>Filter</button>
         <button id='sort' disabled='true'>Sort</button>
