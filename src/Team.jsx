@@ -4,9 +4,13 @@ import AppContext from "./AppContext";
 import TeamMember from "./TeamMember";
 
 export default function Team() {
-  const { team } = useContext(AppContext)
+  const { team, setTeam } = useContext(AppContext)
   function saveTeam() {
     localStorage.setItem("team", JSON.stringify(team))
+  }
+  function clearTeam() {
+    localStorage.setItem("team", JSON.stringify([]))
+    setTeam([])
   }
 
   return (
@@ -19,10 +23,14 @@ export default function Team() {
         </div>
         <h2>Team Power Score: {team.reduce((sum, char) => sum + Number(char.ki.replaceAll('.', '')), 0).toLocaleString()}</h2>
         <div id='max'>
-          <h3>Max Saiyans: {team.filter(m => m.race === 'Saiyan').length} / 2</h3>
-          <h3>Max Team Size: {team.length} / 6</h3>
+          <h3>Max Saiyans: {team.filter(m => m.race === 'Saiyan').length} / 1</h3>
+          <h3>Max Team Size: {team.length} / 3</h3>
         </div>
-        <button id='save' onClick={saveTeam}>Save Team</button>
+        <div id='options'>
+          <button id='save' onClick={saveTeam}>Save Team</button>
+          <button id='clear' onClick={clearTeam}>Clear Team</button>
+          <button id='fight'>Fight!</button>
+        </div>
       </div>
     </>
   )

@@ -7,9 +7,9 @@ export default function CharacterDetails() {
   const { name, ki, maxKi, race, gender, description, image, affiliation } = characterDetails
   const { setTeam, team } = useContext(AppContext)
   const inTeam = team.some(char => char.name === name)
-  const teamFull = team.length >= 6
+  const teamFull = team.length >= 3
   const saiyanCount = team.filter(c => c.race === "Saiyan").length
-  const canAddSaiyan = saiyanCount < 2
+  const canAddSaiyan = saiyanCount < 1
   const handleClick = () => {
     inTeam
       ? setTeam(prev => prev.filter(c => c.name !== name))

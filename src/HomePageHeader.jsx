@@ -5,11 +5,11 @@ export default function HomePageHeader() {
 
   return (
     <div id='homePageHeader'>
-      <p id='headerTitle'>POWER SCOUT</p>
+      <p id='headerTitle'>PATH TO POWER</p>
       <input id='search' type="search" placeholder="Search Characters..." />
       <div id='filterContainer'>
-        <button id='filter'>Filter</button>
-        <button id='sort'>Sort</button>
+        <button id='filter' disabled='true'>Filter</button>
+        <button id='sort' disabled='true'>Sort</button>
         <button id='team' onClick={() => navigate('/myteam')}>My Team</button>
       </div>
     </div>

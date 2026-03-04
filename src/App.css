@@ -48,7 +48,7 @@ button:hover{
   margin: 1rem;
 }
 
-#filter, #sort, #home, #team, #add, #save {
+#filter, #sort, #home, #team, #add, #save, #fight, #clear {
   width: fit-content;
   height: 2.5rem;
   font-size: 1.5rem;
@@ -147,4 +147,9 @@ button:hover{
   display: flex;
   flex-flow: row nowrap;
   gap: 1rem;
+}
+
+#options{
+  display: flex;
+  gap: 1rem
 }

@@ -8,7 +8,7 @@ export default function AppendedHeader() {
 
   return (
     <div id='appendedHeader'>
-      <p id='headerTitle' onClick={handleClick}>POWER SCOUT</p>
+      <p id='headerTitle' onClick={handleClick}>PATH TO POWER</p>
       <button id='home' onClick={handleClick}>Home</button>
       <button id='sort' onClick={() => navigate('/myteam')}>My Team</button>
     </div>
