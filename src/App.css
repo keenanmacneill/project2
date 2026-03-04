@@ -5,6 +5,10 @@ html{
   cursor: default;
 }
 
+button:hover{
+  cursor: pointer;
+}
+
 #homePageHeader{
   display: flex;
   flex-flow: row nowrap;
@@ -21,6 +25,12 @@ html{
 #headerTitle{
   font-size: 2rem;
   margin: 1rem;
+  text-align: center;
+}
+
+#headerTitle:hover{
+  cursor: pointer;
+  font-weight: 500;
 }
 
 #search{
@@ -38,20 +48,19 @@ html{
   margin: 1rem;
 }
 
-#filter, #sort, #home{
-  width: 7.5rem;
+#filter, #sort, #home, #team, #add, #save {
+  width: fit-content;
   height: 2.5rem;
   font-size: 1.5rem;
-  font-style: italic;
   align-self: center;
+  display: flex;
+  flex-flow: row nowrap;
+  padding: 0 2.5rem;
+  align-items: center;
 }
 
-#add{
-  width: 10rem;
-  height: 2.5rem;
-  font-size: 1.5rem;
-  font-style: italic;
-  align-self: center;
+#team{
+  min-width: 180px
 }
 
 #browse{
@@ -65,6 +74,19 @@ html{
   justify-self: center;
 }
 
+#random {
+  width:16rem;
+  height: 2.5rem;
+  font-size: 1.5rem;
+  display: flex;
+  justify-self: center;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem;
+  padding: 0 2.5rem;
+  min-width: 350px;
+}
+
 .characterCard{
   display: flex;
   flex-flow: column nowrap;
@@ -74,22 +96,16 @@ html{
   overflow: hidden;
 }
 
+.characterCard:hover{
+  cursor: pointer;
+}
+
 .characterCard>img{
   width: 10rem;
   height: 10rem;
   object-fit: cover;
   object-position:top;
   margin-top: 1rem;
-}
-
-#random {
-  width:16rem;
-  height: 2rem;
-  display: flex;
-  justify-self: center;
-  justify-content: center;
-  align-items: center;
-  margin: 1rem
 }
 
 #characterDetailsContainer{
@@ -120,26 +136,15 @@ html{
   align-items: center;
 }
 
-#team{
+#teamGallery{
   display: flex;
   flex-flow: row wrap;
-  gap:1rem;
+  gap: 1rem;
   justify-content: center;
 }
 
-.characterCard{
+#max{
   display: flex;
-  flex-flow: column nowrap;
-  align-items: center;
-  border: 2px black solid;
-  width: 16rem;
-  overflow: hidden;
-}
-
-.characterCard>img{
-  width: 10rem;
-  height: 10rem;
-  object-fit: cover;
-  object-position:top;
-  margin-top: 1rem;
+  flex-flow: row nowrap;
+  gap: 1rem;
 }

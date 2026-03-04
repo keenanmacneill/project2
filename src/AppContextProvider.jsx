@@ -1,5 +1,5 @@
 import AppContext from "./AppContext";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function AppContextProvider({ children }) {
   const [characterDetails, setCharacterDetails] = useState(null)
@@ -10,6 +10,11 @@ export default function AppContextProvider({ children }) {
     team,
     setTeam
   }
+
+  useEffect(() => {
+    const savedTeam = localStorage.getItem("team")
+    setTeam(JSON.parse(savedTeam))
+  }, [setTeam])
 
   return (
     < AppContext.Provider value={contextValue}>

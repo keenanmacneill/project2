@@ -10,7 +10,7 @@ export default function HomePageHeader() {
       <div id='filterContainer'>
         <button id='filter'>Filter</button>
         <button id='sort'>Sort</button>
-        <button id='sort' onClick={() => navigate('/myteam')}>My Team</button>
+        <button id='team' onClick={() => navigate('/myteam')}>My Team</button>
       </div>
     </div>
   )
