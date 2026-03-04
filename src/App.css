@@ -119,3 +119,27 @@ html{
   flex-flow: column;
   align-items: center;
 }
+
+#team{
+  display: flex;
+  flex-flow: row wrap;
+  gap:1rem;
+  justify-content: center;
+}
+
+.characterCard{
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  border: 2px black solid;
+  width: 16rem;
+  overflow: hidden;
+}
+
+.characterCard>img{
+  width: 10rem;
+  height: 10rem;
+  object-fit: cover;
+  object-position:top;
+  margin-top: 1rem;
+}
