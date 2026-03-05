@@ -8,7 +8,7 @@ export default function AppContextProvider({ children }) {
   });
   const [team, setTeam] = useState(() => {
     const saved = localStorage.getItem("team");
-    return saved ? JSON.parse(saved) : null;
+    return saved ? JSON.parse(saved) : [];
   })
 
   const [searchValue, setSearchValue] = useState("")

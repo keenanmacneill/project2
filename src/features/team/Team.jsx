@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import AppendedHeader from "../../shared/AppendedHeader";
 import AppContext from "../../context/AppContext";
 import TeamMember from "./TeamMember";
@@ -6,9 +7,13 @@ import "./Team.css"
 
 export default function Team() {
   const { team, setTeam } = useContext(AppContext)
-  function clearTeam() {
+  const navigate = useNavigate()
+  const clearTeam = () => {
     localStorage.setItem("team", JSON.stringify([]))
     setTeam([])
+  }
+  const fight = () => {
+    navigate('/fight')
   }
 
   return (
@@ -28,10 +33,10 @@ export default function Team() {
               )
           })}
         </div>
-        <h2>Team Power Score: {team.reduce((sum, char) => sum + char.ki, 0).toLocaleString()}</h2>
+        <h3 id='max'>Team Level {team.map(c => c.level).reduce((sum, accum) => sum + accum, 0)} / 43</h3>
         <div id='options'>
           <button id='clear' onClick={clearTeam}>Clear Team</button>
-          <button id='fight' disabled={true}>Fight!</button>
+          <button id='fight' onClick={fight}>Fight!</button>
         </div>
       </div>
     </>

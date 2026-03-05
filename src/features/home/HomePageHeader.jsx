@@ -24,6 +24,8 @@ export default function HomePageHeader() {
             <option value='desc'>Z-A</option>
             <option value='descKi'>Highest Ki</option>
             <option value='ascKi'>Lowest Ki</option>
+            <option value='descLevel'>Highest Level</option>
+            <option value='ascLevel'>Lowest Level</option>
             <option value='descMaxKi'>Highest Max Ki</option>
             <option value='ascMaxKi'>Lowest Max Ki</option>
           </select>

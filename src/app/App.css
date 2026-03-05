@@ -108,3 +108,42 @@ button:hover{
 
   letter-spacing: 1px;
 }
+
+#nameField{
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+#level{
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+
+  width: 2.4rem;
+  height: 2.4rem;
+
+  font-weight: 900;
+  font-size: .75rem;
+  letter-spacing: .05em;
+
+  color: #5a3d00;
+
+  border-radius: 50%;
+  border: 2px solid #8a6a00;
+
+  background:
+    radial-gradient(circle at 30% 30%, #fff3b0 0%, #ffd54a 25%, #e0a800 60%, #a87800 100%);
+
+  box-shadow:
+    inset 0 2px 3px rgba(255,255,255,0.6),
+    inset 0 -2px 4px rgba(0,0,0,0.4),
+    0 2px 6px rgba(0,0,0,0.5);
+
+  text-shadow: 0 1px 1px rgba(255,255,255,0.6);
+}
+
+#level>p{
+  margin: 0
+}

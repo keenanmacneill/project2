@@ -9,6 +9,7 @@ export default function HomePage() {
   const [characters, setCharacters] = useState(null)
   const { search, sort, setCharacterDetails } = useContext(AppContext)
   const navigate = useNavigate()
+
   const parsePower = raw => {
     if (!raw) return 0;
     const s = String(raw).trim().toLowerCase();
@@ -30,7 +31,7 @@ export default function HomePage() {
       sextillion: 21,
       septillion: 24,
       septllion: 24,
-      googolplex: 30
+      googolplex: 40
     };
 
     if (!pow[unit]) return 0;
@@ -46,6 +47,7 @@ export default function HomePage() {
           ...c,
           ki: parsePower(c.ki),
           maxKi: parsePower(c.maxKi),
+          level: Math.round(Math.log10(Math.max(parsePower(c.maxKi), 1)))
         }));
         setCharacters(sortedArr)
       })
@@ -61,6 +63,9 @@ export default function HomePage() {
       if (sort === "ascKi") return a.ki - b.ki
       if (sort === "descKi") return b.ki - a.ki
 
+      if (sort === "ascLevel") return a.level - b.level
+      if (sort === "descLevel") return b.level - a.level
+
       if (sort === "ascMaxKi") return a.maxKi - b.maxKi
       if (sort === "descMaxKi") return b.maxKi - a.maxKi
 
@@ -68,7 +73,7 @@ export default function HomePage() {
     })
 
   const handleRandom = () => {
-    const randomCharacter = characters[Math.floor(Math.random() * 57)]
+    const randomCharacter = characters[Math.floor(Math.random() * characters.length)]
     const { name } = randomCharacter
     localStorage.setItem("details", JSON.stringify(randomCharacter))
     setCharacterDetails(randomCharacter)

@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import AppContext from '../../context/AppContext'
 
 export default function BrowseCharacter({ character }) {
-  const { name, image } = character
+  const { name, image, level } = character
   const navigate = useNavigate()
   const { setCharacterDetails } = useContext(AppContext)
 
@@ -21,6 +21,10 @@ export default function BrowseCharacter({ character }) {
         <img src={image} />
         <div id='nameField'>
           <p id='name'>{name}</p>
+          <div id='level'>
+            <p>Lv.</p>
+            <p>{level}</p>
+          </div>
         </div>
       </div>
     </>

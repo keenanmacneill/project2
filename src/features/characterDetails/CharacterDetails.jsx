@@ -5,11 +5,12 @@ import "./CharacterDetails.css"
 
 export default function CharacterDetails() {
   const { characterDetails } = useContext(AppContext)
-  const { name, ki, maxKi, race, gender, description, image, affiliation } = characterDetails
+  const { name, ki, maxKi, race, gender, description, image, affiliation, level } = characterDetails
   const { setTeam, team } = useContext(AppContext)
 
   const inTeam = team.some(char => char.name === name)
   const teamFull = team.length >= 3
+  const canAdd = characterDetails.level + team.map(c => c.level).reduce((sum, accum) => sum + accum, 0) <= 43
 
   const handleClick = () => {
     inTeam
@@ -21,13 +22,16 @@ export default function CharacterDetails() {
     localStorage.setItem("team", JSON.stringify(team))
   }, [team])
 
-  const checkTeam = inTeam
-    ? 'Remove from Team'
-    : teamFull
-      ? 'Team is full'
-      : 'Add to Team'
+  const checkTeam =
+    inTeam
+      ? 'Remove from Team'
+      : !canAdd
+        ? 'Level too high'
+        : teamFull
+          ? 'Team is full'
+          : 'Add to Team'
 
-  const checkDisabled = !inTeam && teamFull
+  const checkDisabled = !inTeam && (teamFull || !canAdd)
 
   return (
     <>
@@ -53,6 +57,7 @@ export default function CharacterDetails() {
 
             <div id="statsPanel">
               <h2 id="statsTitle">Stats</h2>
+              <div className="statRow"><span>Level</span><span>{level}</span></div>
               <div className="statRow"><span>Gender</span><span>{gender}</span></div>
               <div className="statRow"><span>Race</span><span>{race}</span></div>
               <div className="statRow"><span>Affiliation</span><span>{affiliation}</span></div>
