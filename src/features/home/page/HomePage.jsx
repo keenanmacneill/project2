@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
-import BrowseCharacter from "../characters/BrowseCharacter"
-import HomePageHeader from "../headers/HomePageHeader"
+import BrowseCharacter from "../components/BrowseCharacter"
+import HomePageHeader from "../components/HomePageHeader"
 import "./HomePage.css"
 
 export default function HomePage() {
