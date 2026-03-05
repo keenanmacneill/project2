@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom'
-import '../../shared/Headers.css'
+import '../../shared/headers.css'
 import { useContext } from 'react'
 import AppContext from '../../context/AppContext'
 

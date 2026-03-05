@@ -1,0 +1,78 @@
+#roundContainer {
+  min-height: 98vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  overflow: hidden;
+}
+
+#roundHeader{
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 1rem;
+  justify-content: center;
+  overflow: hidden;
+}
+
+#quit{
+  width: fit-content;
+  height: 2.5rem;
+  font-size: 1.5rem;
+  align-self: center;
+  padding: 0 2.5rem;
+}
+
+#roundTitle {
+  margin: 1.5rem 0;
+  color: white;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.8);
+  z-index: 2;
+}
+
+#arena {
+  margin-top: auto;
+  margin-bottom: 2rem;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 0 6vw;
+}
+
+#friendlyTeam,
+#enemyTeam {
+  display: flex;
+  align-items: flex-end;
+}
+
+#friendlyTeam img,
+#enemyTeam img {
+  height: min(68vh, 520px);
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 18px 22px rgba(0, 0, 0, 0.6));
+}
+
+#friendlyTeam img {
+  margin-left: -10vh;
+}
+
+#friendlyTeam img:first-child {
+  margin-left: 0;
+}
+
+#enemyTeam {
+  flex-direction: row-reverse;
+}
+
+#enemyTeam img {
+  margin-right: -10vh;
+}
+
+#enemyTeam img:first-child {
+  margin-right: 0;
+}

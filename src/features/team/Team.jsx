@@ -22,7 +22,7 @@ export default function Team() {
       <div id='teamContainer'>
         <h1>My Team</h1>
         <div id='teamGallery'>
-          {[...Array(3)].map((_, i) => {
+          {[...Array(2)].map((_, i) => {
             const member = team[i]
             return member
               ? <TeamMember key={member.name} character={member} />
@@ -33,7 +33,7 @@ export default function Team() {
               )
           })}
         </div>
-        <h3 id='max'>Team Level {team.map(c => c.level).reduce((sum, accum) => sum + accum, 0)} / 43</h3>
+        <h3 id='max'>Team Level {team.map(c => c.level).reduce((sum, accum) => sum + accum, 0)} / 55</h3>
         <div id='options'>
           <button id='clear' onClick={clearTeam}>Clear Team</button>
           <button id='fight' onClick={fight}>Fight!</button>

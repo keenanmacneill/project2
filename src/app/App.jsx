@@ -3,7 +3,7 @@ import HomePage from "../features/home/HomePage"
 import AppContextProvider from "../context/AppContextProvider"
 import CharacterDetails from "../features/characterDetails/CharacterDetails"
 import Team from "../features/team/Team"
-import Fight from "../features/fight/Fight"
+import Rounds from "../features/rounds/Rounds"
 
 export default function App() {
 
@@ -14,7 +14,7 @@ export default function App() {
           <Route path='/' element={<HomePage />} />
           <Route path='/character/:name' element={<CharacterDetails />} />
           <Route path='/myteam' element={<Team />} />
-          <Route path='/fight' element={<Fight />} />
+          <Route path='/fight' element={<Rounds />} />
         </Routes>
       </Router>
     </AppContextProvider>

@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react"
+import { useContext } from "react"
 import { useNavigate } from 'react-router-dom'
 import BrowseCharacter from "../browse/BrowseCharacter"
 import HomePageHeader from ".//HomePageHeader"
@@ -6,52 +6,8 @@ import "./HomePage.css"
 import AppContext from "../../context/AppContext"
 
 export default function HomePage() {
-  const [characters, setCharacters] = useState(null)
-  const { search, sort, setCharacterDetails } = useContext(AppContext)
+  const { search, sort, setCharacterDetails, characters } = useContext(AppContext)
   const navigate = useNavigate()
-
-  const parsePower = raw => {
-    if (!raw) return 0;
-    const s = String(raw).trim().toLowerCase();
-
-    if (s === "unknown") return 0;
-    if (/^[\d.,\s]+$/.test(s)) return Number(s.replace(/[^\d]/g, "")) || 0;
-
-    const m = s.match(/^([\d.]+)\s*([a-z]+)$/);
-
-    if (!m) return 0;
-
-    const num = Number(m[1]);
-    const unit = m[2].replace(/s$/, "");
-    const pow = {
-      billion: 9,
-      trillion: 12,
-      quadrillion: 15,
-      quintillion: 18,
-      sextillion: 21,
-      septillion: 24,
-      septllion: 24,
-      googolplex: 40
-    };
-
-    if (!pow[unit]) return 0;
-
-    return num * 10 ** pow[unit];
-  }
-
-  useEffect(() => {
-    fetch('https://dragonball-api.com/api/characters?limit=100')
-      .then(res => res.json())
-      .then(data => {
-        const sortedArr = data.items.map(c => ({
-          ...c,
-          ki: parsePower(c.ki),
-          maxKi: parsePower(c.maxKi),
-          level: Math.round(Math.log10(Math.max(parsePower(c.maxKi), 1)))
-        }));
-        setCharacters(sortedArr)
-      })
-  }, [])
 
   if (!characters) return 'Loading...'
   const shownCharacters = [...characters]

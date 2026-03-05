@@ -9,8 +9,8 @@ export default function CharacterDetails() {
   const { setTeam, team } = useContext(AppContext)
 
   const inTeam = team.some(char => char.name === name)
-  const teamFull = team.length >= 3
-  const canAdd = characterDetails.level + team.map(c => c.level).reduce((sum, accum) => sum + accum, 0) <= 43
+  const teamFull = team.length >= 2
+  const canAdd = characterDetails.level + team.map(c => c.level).reduce((sum, accum) => sum + accum, 0) <= 55
 
   const handleClick = () => {
     inTeam
@@ -25,10 +25,10 @@ export default function CharacterDetails() {
   const checkTeam =
     inTeam
       ? 'Remove from Team'
-      : !canAdd
-        ? 'Level too high'
-        : teamFull
-          ? 'Team is full'
+      : teamFull
+        ? 'Team is full'
+        : !canAdd
+          ? 'Level too high'
           : 'Add to Team'
 
   const checkDisabled = !inTeam && (teamFull || !canAdd)

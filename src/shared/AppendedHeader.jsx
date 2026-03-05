@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom'
-import './Headers.css'
+import './headers.css'
 
 export default function AppendedHeader() {
   const navigate = useNavigate()
