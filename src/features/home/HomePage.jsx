@@ -71,7 +71,7 @@ export default function HomePage() {
     const randomCharacter = characters[Math.floor(Math.random() * 57)]
     const { name } = randomCharacter
     setCharacterDetails(randomCharacter)
-    navigate(`/characters/${name}`)
+    navigate(`/character/${name}`)
   }
 
   return (

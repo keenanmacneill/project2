@@ -3,13 +3,13 @@ import { useNavigate } from 'react-router-dom'
 import AppContext from '../../context/AppContext'
 
 export default function BrowseCharacter({ character }) {
-  const { name, image, id } = character
+  const { name, image } = character
   const navigate = useNavigate()
   const { setCharacterDetails } = useContext(AppContext)
 
   const handleClick = () => {
     setCharacterDetails(character)
-    navigate(`/characters/${name}`)
+    navigate(`/character/${name}`)
   }
 
   if (!character) return 'Loading...'

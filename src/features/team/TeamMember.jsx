@@ -8,7 +8,7 @@ export default function TeamMember({ character }) {
   const navigate = useNavigate()
   const handleClick = () => {
     setCharacterDetails(character)
-    navigate(`/characters/${name}`)
+    navigate(`/character/${name}`)
   }
 
   return (
