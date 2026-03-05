@@ -14,7 +14,7 @@ export default function Rounds() {
   const backgrounds = [round1, round2, round3];
   const currBackground = backgrounds[round - 1];
   const navigate = useNavigate();
-  const quit = () => navigate("/");
+  const quit = () => navigate("/myteam");
   const makeFighter = (c) => {
     const { maxKi } = c;
     const rating = Math.log10(maxKi + 1);
@@ -141,6 +141,7 @@ export default function Rounds() {
       </div>
 
       <div id="actionPanel">
+        <div id='strikes'>Moves Remaining : {friendlyTeam.length}</div>
         <div id="moves">
           <button id="attack" className="moveBtn moveAttack">Attack!</button>
           <button id="defend" className="moveBtn moveDefend">Defend</button>
