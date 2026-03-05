@@ -17,6 +17,10 @@ export default function CharacterDetails() {
       : setTeam(prev => [...prev, characterDetails])
   }
 
+  useEffect(() => {
+    localStorage.setItem("team", JSON.stringify(team))
+  }, [team])
+
   const checkTeam = inTeam
     ? 'Remove from Team'
     : teamFull
@@ -24,10 +28,6 @@ export default function CharacterDetails() {
       : 'Add to Team'
 
   const checkDisabled = !inTeam && teamFull
-
-  useEffect(() => {
-    localStorage.setItem("team", JSON.stringify(team))
-  }, [team])
 
   return (
     <>

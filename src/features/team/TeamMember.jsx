@@ -7,6 +7,7 @@ export default function TeamMember({ character }) {
   const { name, image } = character
   const navigate = useNavigate()
   const handleClick = () => {
+    localStorage.setItem("details", JSON.stringify(character))
     setCharacterDetails(character)
     navigate(`/character/${name}`)
   }

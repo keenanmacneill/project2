@@ -8,6 +8,7 @@ export default function BrowseCharacter({ character }) {
   const { setCharacterDetails } = useContext(AppContext)
 
   const handleClick = () => {
+    localStorage.setItem("details", JSON.stringify(character))
     setCharacterDetails(character)
     navigate(`/character/${name}`)
   }

@@ -70,6 +70,7 @@ export default function HomePage() {
   const handleRandom = () => {
     const randomCharacter = characters[Math.floor(Math.random() * 57)]
     const { name } = randomCharacter
+    localStorage.setItem("details", JSON.stringify(randomCharacter))
     setCharacterDetails(randomCharacter)
     navigate(`/character/${name}`)
   }

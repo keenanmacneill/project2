@@ -1,9 +1,15 @@
 import AppContext from "./AppContext";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 export default function AppContextProvider({ children }) {
-  const [characterDetails, setCharacterDetails] = useState(null)
-  const [team, setTeam] = useState([])
+  const [characterDetails, setCharacterDetails] = useState(() => {
+    const saved = localStorage.getItem("details");
+    return saved ? JSON.parse(saved) : null;
+  });
+  const [team, setTeam] = useState(() => {
+    const saved = localStorage.getItem("team");
+    return saved ? JSON.parse(saved) : null;
+  })
 
   const [searchValue, setSearchValue] = useState("")
   const [search, setSearch] = useState("")
@@ -21,12 +27,6 @@ export default function AppContextProvider({ children }) {
     sort,
     setSort
   }
-
-  useEffect(() => {
-    const savedTeam = localStorage.getItem("team")
-    if (!savedTeam) return
-    setTeam(JSON.parse(savedTeam))
-  }, [])
 
   return (
     <AppContext.Provider value={contextValue}>
