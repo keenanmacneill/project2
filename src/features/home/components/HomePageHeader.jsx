@@ -22,10 +22,10 @@ export default function HomePageHeader() {
           <select id='sort' value={sort} onChange={e => setSort(e.target.value)}>
             <option value='asc'>A-Z</option>
             <option value='desc'>Z-A</option>
-            <option value='ascKi'>Highest Ki</option>
-            <option value='descKi'>Lowest Ki</option>
-            <option value='ascMaxKi'>Highest Max Ki</option>
-            <option value='descMaxKi'>Lowest Max Ki</option>
+            <option value='descKi'>Highest Ki</option>
+            <option value='ascKi'>Lowest Ki</option>
+            <option value='descMaxKi'>Highest Max Ki</option>
+            <option value='ascMaxKi'>Lowest Max Ki</option>
           </select>
         </div>
         <button id='team' onClick={() => navigate('/myteam')}>My Team</button>

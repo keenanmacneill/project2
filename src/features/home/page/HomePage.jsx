@@ -27,9 +27,10 @@ export default function HomePage() {
       quintillion: 18,
       sextillion: 21,
       septillion: 24,
+      septllion: 24,
+      googolplex: 30
     };
 
-    if (unit === "googolplex") return Number.POSITIVE_INFINITY;
     if (!pow[unit]) return 0;
 
     return num * 10 ** pow[unit];
@@ -41,8 +42,8 @@ export default function HomePage() {
       .then(data => {
         const sortedArr = data.items.map(c => ({
           ...c,
-          kiValue: parsePower(c.ki),
-          maxKiValue: parsePower(c.maxKi),
+          ki: parsePower(c.ki),
+          maxKi: parsePower(c.maxKi),
         }));
         setCharacters(sortedArr)
       })
@@ -55,11 +56,11 @@ export default function HomePage() {
       if (sort === "asc") return a.name.localeCompare(b.name)
       if (sort === "desc") return b.name.localeCompare(a.name)
 
-      if (sort === "ascKi") return b.kiValue - a.kiValue
-      if (sort === "descKi") return a.kiValue - b.kiValue
+      if (sort === "ascKi") return a.ki - b.ki
+      if (sort === "descKi") return b.ki - a.ki
 
-      if (sort === "ascMaxKi") return b.maxKiValue - a.maxKiValue
-      if (sort === "descMaxKi") return a.maxKiValue - b.maxKiValue
+      if (sort === "ascMaxKi") return a.maxKi - b.maxKi
+      if (sort === "descMaxKi") return b.maxKi - a.maxKi
 
       return 0
     })

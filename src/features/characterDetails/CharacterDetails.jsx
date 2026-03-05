@@ -56,8 +56,8 @@ export default function CharacterDetails() {
               <div className="statRow"><span>Gender</span><span>{gender}</span></div>
               <div className="statRow"><span>Race</span><span>{race}</span></div>
               <div className="statRow"><span>Affiliation</span><span>{affiliation}</span></div>
-              <div className="statRow"><span>Ki</span><span>{ki}</span></div>
-              <div className="statRow"><span>Max Ki</span><span>{maxKi}</span></div>
+              <div className="statRow"><span>Ki</span><span>{ki.toLocaleString()}</span></div>
+              <div className="statRow"><span>Max Ki</span><span>{maxKi.toLocaleString()}</span></div>
             </div>
           </div>
         </div>

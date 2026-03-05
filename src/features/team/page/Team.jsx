@@ -28,7 +28,7 @@ export default function Team() {
               )
           })}
         </div>
-        <h2>Team Power Score: {team.reduce((sum, char) => sum + Number(char.ki.replaceAll('.', '')), 0).toLocaleString()}</h2>
+        <h2>Team Power Score: {team.reduce((sum, char) => sum + char.ki, 0).toLocaleString()}</h2>
         <div id='options'>
           <button id='clear' onClick={clearTeam}>Clear Team</button>
           <button id='fight' disabled={true}>Fight!</button>
