@@ -1,8 +1,8 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
-import HomePage from "../features/home/page/HomePage"
+import HomePage from "../features/home/HomePage"
 import AppContextProvider from "../context/AppContextProvider"
 import CharacterDetails from "../features/characterDetails/CharacterDetails"
-import Team from "../features/team/page/Team"
+import Team from "../features/team/Team"
 
 export default function App() {
 

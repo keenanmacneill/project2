@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom'
-import '../../../shared/Headers.css'
+import '../../shared/Headers.css'
 import { useContext } from 'react'
-import AppContext from '../../../context/AppContext'
+import AppContext from '../../context/AppContext'
 
 export default function HomePageHeader() {
   const navigate = useNavigate()

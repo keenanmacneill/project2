@@ -1,9 +1,9 @@
 import { useContext, useEffect, useState } from "react"
 import { useNavigate } from 'react-router-dom'
-import BrowseCharacter from "../components/BrowseCharacter"
-import HomePageHeader from "../components/HomePageHeader"
+import BrowseCharacter from "../browse/BrowseCharacter"
+import HomePageHeader from ".//HomePageHeader"
 import "./HomePage.css"
-import AppContext from "../../../context/AppContext"
+import AppContext from "../../context/AppContext"
 
 export default function HomePage() {
   const [characters, setCharacters] = useState(null)

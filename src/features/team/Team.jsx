@@ -1,7 +1,7 @@
 import { useContext } from "react";
-import AppendedHeader from "../../../shared/AppendedHeader";
-import AppContext from "../../../context/AppContext";
-import TeamMember from "../components/TeamMember";
+import AppendedHeader from "../../shared/AppendedHeader";
+import AppContext from "../../context/AppContext";
+import TeamMember from "./TeamMember";
 import "./Team.css"
 
 export default function Team() {
