@@ -4,7 +4,7 @@ import AppContext from '../../../context/AppContext'
 
 export default function TeamMember({ character }) {
   const { setCharacterDetails } = useContext(AppContext)
-  const { name, image, race } = character
+  const { name, image, race, id } = character
   const navigate = useNavigate()
   const handleClick = () => {
     setCharacterDetails(character)

@@ -1,4 +1,5 @@
 import { useContext, useEffect, useState } from "react"
+import { useNavigate } from 'react-router-dom'
 import BrowseCharacter from "../components/BrowseCharacter"
 import HomePageHeader from "../components/HomePageHeader"
 import "./HomePage.css"
@@ -6,7 +7,8 @@ import AppContext from "../../../context/AppContext"
 
 export default function HomePage() {
   const [characters, setCharacters] = useState(null)
-  const { search, sort } = useContext(AppContext)
+  const { search, sort, setCharacterDetails } = useContext(AppContext)
+  const navigate = useNavigate()
   const parsePower = raw => {
     if (!raw) return 0;
     const s = String(raw).trim().toLowerCase();
@@ -64,11 +66,19 @@ export default function HomePage() {
 
       return 0
     })
+
+  const handleRandom = () => {
+    const randomCharacter = characters[Math.floor(Math.random() * 57)]
+    const { name } = randomCharacter
+    setCharacterDetails(randomCharacter)
+    navigate(`/characters/${name}`)
+  }
+
   return (
     <>
       <HomePageHeader />
       <h1 id='browseTitle'>Browse Characters</h1>
-      <button id='random' disabled={true}>Random Character!</button>
+      <button id='random' onClick={handleRandom}>Random Character!</button>
       <div id='browse'>
         {shownCharacters.map(c => <BrowseCharacter key={c.id} character={c} />)}
       </div>
