@@ -23,3 +23,10 @@
   padding: 0 2.5rem;
   min-width: 425px;
 }
+
+#random:disabled{
+  opacity: .55;
+  cursor:not-allowed;
+  transform:none;
+  box-shadow:none;
+}

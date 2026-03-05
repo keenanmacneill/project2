@@ -25,76 +25,10 @@ button:hover{
   box-shadow: 0 0 16px rgba(255,200,0,0.9);
 }
 
-#homePageHeader{
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-around;
-  background: linear-gradient(90deg,#ff7b00,#ff3c00);
-  border-bottom: 4px solid #000;
-  overflow: hidden;
-}
-
-#appendedHeader{
-  display: flex;
-  flex-flow: row nowrap;
-  gap: 1rem;
-  justify-content: center;
-  overflow: hidden;
-}
-
-#headerTitle{
-  font-size: 2rem;
-  margin: 1rem;
-  min-width: 315px;
-  text-align: center;
-  font-weight: 900;
-  color: #ffe600;
-  text-shadow:
-    0 0 5px #ffcc00,
-    0 0 10px #ff8800,
-    2px 2px 0 #000;
-}
-
-#headerTitle:hover{
-  cursor: pointer;
-  transform: scale(1.05);
-}
-
-#search{
-  width: 50rem;
-  height: 2.5rem;
-  margin: 1rem;
-  align-self: center;
-  border: 2px solid #ff8800;
-  background: #111;
-  color: white;
-  padding-left: 1rem;
-}
-
-#filterContainer{
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: start;
-  gap: 1rem;
-  margin: 1rem;
-}
-
-#filter, #sort, #home, #team, #add, #save, #fight, #clear {
-  width: fit-content;
-  height: 2.5rem;
-  font-size: 1.5rem;
-  align-self: center;
-  padding: 0 2.5rem;
-}
-
-#team{
-  min-width: 225px
-}
-
 .characterCard{
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
 
   width: 16rem;
@@ -173,4 +107,39 @@ button:hover{
   border-top: 2px solid #1f3a63;
 
   letter-spacing: 1px;
+}
+
+#nameField{
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  height: 4rem;
+}
+
+#saiyanTag{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 2.4rem;
+  height: 2.4rem;
+
+  font-weight: 900;
+  font-size: 1.3rem;
+  letter-spacing: .05em;
+
+  color: #5a3d00;
+
+  border-radius: 50%;
+  border: 2px solid #8a6a00;
+
+  background:
+    radial-gradient(circle at 30% 30%, #fff3b0 0%, #ffd54a 25%, #e0a800 60%, #a87800 100%);
+
+  box-shadow:
+    inset 0 2px 3px rgba(255,255,255,0.6),
+    inset 0 -2px 4px rgba(0,0,0,0.4),
+    0 2px 6px rgba(0,0,0,0.5);
+
+  text-shadow: 0 1px 1px rgba(255,255,255,0.6);
 }

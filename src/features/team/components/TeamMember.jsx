@@ -4,7 +4,7 @@ import AppContext from '../../../context/AppContext'
 
 export default function TeamMember({ character }) {
   const { setCharacterDetails } = useContext(AppContext)
-  const { name, image } = character
+  const { name, image, race } = character
   const navigate = useNavigate()
   const handleClick = () => {
     setCharacterDetails(character)
@@ -12,9 +12,12 @@ export default function TeamMember({ character }) {
   }
 
   return (
-    <div className='characterCard' onClick={handleClick}>
-      <img src={image} />
-      <p>{name}</p>
+    <div className='characterCard'>
+      <img src={image} onClick={handleClick} />
+      <div id='nameField'>
+        <p id='name'>{name}</p>
+        {/* {race === 'Saiyan' ? <p id='saiyanTag'>S</p> : ''} */}
+      </div>
     </div>
   )
 }

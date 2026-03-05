@@ -1,0 +1,125 @@
+#homePageHeader{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  align-items: center;
+  background: linear-gradient(90deg,#ff7b00,#ff3c00);
+  border-bottom: 4px solid #000;
+  overflow: hidden;
+}
+
+#appendedHeader{
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 1rem;
+  justify-content: center;
+  overflow: hidden;
+}
+
+#headerTitle{
+  font-size: 3.5rem;
+  margin: 3rem;
+  min-width: 315px;
+  text-align: center;
+  font-weight: 900;
+  color: #ffe600;
+  text-shadow:
+    0 0 5px #ffcc00,
+    0 0 10px #ff8800,
+    2px 2px 0 #000;
+}
+
+#headerTitle:hover{
+  cursor: pointer;
+  transform: scale(1.05);
+}
+
+#searchBar{
+  width: 70rem;
+  min-width: 350px;
+  height: 3rem;
+  margin: 1rem;
+  align-self: center;
+  border: 2px solid #ff8800;
+  background: #111;
+  color: white;
+  padding-left: 1rem;
+}
+
+#filterContainer{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: start;
+  gap: 1rem;
+  margin: 1rem;
+}
+
+#search, #home, #team, #add {
+  width: fit-content;
+  height: 2.5rem;
+  font-size: 1.5rem;
+  align-self: center;
+  padding: 0 2.5rem;
+}
+
+.selectWrap{
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.selectWrap::after{
+  content: "▾";
+  position: absolute;
+  right: 1rem;
+  color: #ffe600;
+  pointer-events: none;
+}
+
+#sort{
+  height: 2.5rem;
+  font-size: 1.5rem;
+  font-family: 'Orbitron', sans-serif;
+
+  padding: 0 3rem 0 1rem;
+
+  border: 2px solid #ff8800;
+  background: #111;
+  color: white;
+
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  cursor: pointer;
+}
+
+#sort:hover{
+  background: rgba(0, 0, 0, 0.78);
+  border-color: rgba(255, 255, 255, 0.35);
+  transform: translateY(-1px);
+}
+
+#sort:focus{
+  border-color: rgba(255, 200, 0, 0.7);
+  box-shadow: 0 0 0 3px rgba(255, 200, 0, 0.22), 0 6px 18px rgba(0,0,0,0.35);
+}
+
+.selectWrap::after{
+  content: "▾";
+  position: absolute;
+  right: 0.75rem;
+  pointer-events: none;
+  color: rgba(255, 200, 0, 0.9);
+  font-size: 0.9rem;
+  line-height: 1;
+}
+
+#sort option{
+  background: #0d0f14;
+  color: #fff;
+}
+
+#team{
+  min-width: 225px
+}

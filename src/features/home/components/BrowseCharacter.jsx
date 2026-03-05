@@ -6,6 +6,7 @@ export default function BrowseCharacter({ character }) {
   const { name, image } = character
   const navigate = useNavigate()
   const { setCharacterDetails } = useContext(AppContext)
+
   const handleClick = () => {
     setCharacterDetails(character)
     navigate(`/characters/${name}`)
@@ -17,7 +18,9 @@ export default function BrowseCharacter({ character }) {
     <>
       <div id={name.toLowerCase()} className='characterCard' onClick={handleClick}>
         <img src={image} />
-        <p>{name}</p>
+        <div id='nameField'>
+          <p id='name'>{name}</p>
+        </div>
       </div>
     </>
   )

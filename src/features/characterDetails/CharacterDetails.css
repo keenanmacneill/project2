@@ -5,7 +5,6 @@
   padding: 1.25rem 1rem;
 }
 
-/* top bar like the screenshot title strip */
 #detailsTopBar{
   width: min(1200px, 95vw);
   display:flex;
@@ -33,7 +32,6 @@
   text-shadow: 2px 2px 0 #000;
 }
 
-/* main frame */
 #characterDetails{
   width: min(1200px, 95vw);
   display:flex;
@@ -47,7 +45,6 @@
   box-shadow: 0 10px 30px rgba(0,0,0,.65);
 }
 
-/* left portrait panel */
 #detailImgWrap{
   flex: 0 0 360px;
   border-right: 3px solid #1f3a63;
@@ -67,7 +64,6 @@
   filter: drop-shadow(0 0 14px rgba(255,140,0,.55));
 }
 
-/* right column */
 #details{
   flex: 1;
   padding: 1rem;
@@ -76,7 +72,6 @@
   gap: 1rem;
 }
 
-/* section panels */
 #detailsPanel, #statsPanel{
   border: 2px solid rgba(31,58,99,.95);
   border-radius: 10px;
@@ -102,7 +97,6 @@
   line-height: 1.6;
 }
 
-/* stat rows like the left info box */
 .statRow{
   display:flex;
   justify-content:space-between;
@@ -122,7 +116,6 @@
   font-weight:700;
 }
 
-/* disabled button state keeps your palette */
 #add:disabled{
   opacity: .55;
   cursor:not-allowed;
@@ -130,7 +123,6 @@
   box-shadow:none;
 }
 
-/* responsive */
 @media (max-width: 900px){
   #characterDetails{
     flex-direction:column;

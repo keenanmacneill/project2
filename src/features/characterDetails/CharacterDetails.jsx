@@ -1,4 +1,4 @@
-import { useContext } from "react"
+import { useContext, useEffect } from "react"
 import AppContext from "../../context/AppContext"
 import AppendedHeader from "../../shared/AppendedHeader";
 import "./CharacterDetails.css"
@@ -10,8 +10,6 @@ export default function CharacterDetails() {
 
   const inTeam = team.some(char => char.name === name)
   const teamFull = team.length >= 3
-  const saiyanCount = team.filter(c => c.race === "Saiyan").length
-  const canAddSaiyan = saiyanCount < 1
 
   const handleClick = () => {
     inTeam
@@ -21,13 +19,15 @@ export default function CharacterDetails() {
 
   const checkTeam = inTeam
     ? 'Remove from Team'
-    : race === 'Saiyan' && !canAddSaiyan
-      ? 'Max Saiyans'
-      : teamFull
-        ? 'Team is full'
-        : 'Add to Team'
+    : teamFull
+      ? 'Team is full'
+      : 'Add to Team'
 
-  const checkDisabled = !inTeam && (teamFull || (race === 'Saiyan' && !canAddSaiyan))
+  const checkDisabled = !inTeam && teamFull
+
+  useEffect(() => {
+    localStorage.setItem("team", JSON.stringify(team))
+  }, [team])
 
   return (
     <>
