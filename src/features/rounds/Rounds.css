@@ -1,4 +1,4 @@
-#roundContainer {
+#roundContainer{
   min-height: 98vh;
   width: 100%;
   display: flex;
@@ -8,71 +8,250 @@
   background-position: center;
   background-size: cover;
   overflow: hidden;
+  position: relative;
+}
+
+#screenVignette{
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at center, rgba(0,0,0,0.10) 0%, rgba(0,0,0,0.55) 70%, rgba(0,0,0,0.82) 100%),
+    linear-gradient(to bottom, rgba(0,0,0,0.40), rgba(0,0,0,0.25));
+  pointer-events: none;
+  z-index: 0;
 }
 
 #roundHeader{
+  margin-top: 1rem;
   display: flex;
   flex-flow: column nowrap;
-  gap: 1rem;
+  gap: .75rem;
   justify-content: center;
-  overflow: hidden;
+  align-items: center;
+  z-index: 2;
+}
+
+#roundTitle{
+  margin: .75rem 0 0;
+  color: #fff;
+  letter-spacing: .06em;
+  text-shadow: 0 3px 18px rgba(0,0,0,.85);
+  font-weight: 800;
 }
 
 #quit{
   width: fit-content;
   height: 2.5rem;
-  font-size: 1.5rem;
-  align-self: center;
-  padding: 0 2.5rem;
+  font-size: 1.15rem;
+  padding: 0 2rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,.18);
+  background: linear-gradient(to bottom, rgba(40,40,45,.95), rgba(18,18,22,.95));
+  color: rgba(255,255,255,.92);
+  box-shadow: 0 10px 25px rgba(0,0,0,.45);
 }
 
-#roundTitle {
-  margin: 1.5rem 0;
-  color: white;
-  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.8);
+#hudRow{
+  margin-top: 1.2rem;
+  width: min(1100px, 92vw);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
   z-index: 2;
 }
 
-#arena {
+.hudCard{
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,.14);
+  background:
+    linear-gradient(to bottom, rgba(12,12,16,.78), rgba(10,10,14,.55));
+  box-shadow:
+    0 18px 40px rgba(0,0,0,.55),
+    inset 0 1px 0 rgba(255,255,255,.10);
+  padding: .9rem 1rem .95rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.hudCard::before{
+  content:"";
+  position:absolute;
+  inset:-1px;
+  background: linear-gradient(135deg, rgba(255,255,255,.10), rgba(255,255,255,0));
+  pointer-events:none;
+}
+
+.hudTop{
+  display:flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: .75rem;
+  margin-bottom: .55rem;
+}
+
+.hudName{
+  color: #fff;
+  font-weight: 800;
+  font-size: 1.15rem;
+  text-shadow: 0 2px 14px rgba(0,0,0,.85);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.hudStat{
+  display:flex;
+  gap: .5rem;
+  align-items: baseline;
+}
+
+.hudTag{
+  font-size: .9rem;
+  color: rgba(255,255,255,.7);
+}
+
+.hudValue{
+  font-size: 1.05rem;
+  color: rgba(255,255,255,.95);
+  font-weight: 800;
+}
+
+.hudHPRow{
+  display:grid;
+  grid-template-columns: auto 1fr auto;
+  gap: .75rem;
+  align-items: center;
+}
+
+.hpBar{
+  height: 18px;
+  border-radius: 10px;
+  background: rgba(0,0,0,.55);
+  border: 1px solid rgba(255,255,255,.14);
+  box-shadow: inset 0 2px 10px rgba(0,0,0,.6);
+  position: relative;
+  overflow: hidden;
+}
+
+.hpFill{
+  height: 100%;
+  width: 50%;
+  background: linear-gradient(to right, #23d96c, #8cff4d);
+  box-shadow: 0 0 18px rgba(40,255,110,.22);
+}
+
+.enemyFill{
+  background: linear-gradient(to right, #36ff7a, #b6ff6a);
+}
+
+.hpGloss{
+  position:absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(255,255,255,.18), rgba(255,255,255,0));
+  pointer-events:none;
+}
+
+#arena{
   margin-top: auto;
-  margin-bottom: 2rem;
+  margin-bottom: 1.25rem;
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
   padding: 0 6vw;
+  z-index: 1;
 }
 
 #friendlyTeam,
-#enemyTeam {
+#enemyTeam{
   display: flex;
   align-items: flex-end;
 }
 
 #friendlyTeam img,
-#enemyTeam img {
-  height: min(68vh, 520px);
+#enemyTeam img{
+  height: min(62vh, 520px);
   width: auto;
   object-fit: contain;
-  filter: drop-shadow(0 18px 22px rgba(0, 0, 0, 0.6));
+  filter: drop-shadow(0 18px 22px rgba(0,0,0,0.6));
 }
 
-#friendlyTeam img {
+#friendlyTeam img{
   margin-left: -10vh;
 }
-
-#friendlyTeam img:first-child {
+#friendlyTeam img:first-child{
   margin-left: 0;
 }
 
-#enemyTeam {
+#enemyTeam{
   flex-direction: row-reverse;
 }
-
-#enemyTeam img {
+#enemyTeam img{
   margin-right: -10vh;
 }
-
-#enemyTeam img:first-child {
+#enemyTeam img:first-child{
   margin-right: 0;
+}
+
+#actionPanel{
+  width: min(1100px, 92vw);
+  margin: 0 0 1.2rem;
+  padding: 1rem 1.2rem 1.1rem;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,.14);
+  background: linear-gradient(to bottom, rgba(12,12,16,.82), rgba(8,8,12,.62));
+  box-shadow: 0 22px 55px rgba(0,0,0,.60);
+  z-index: 2;
+}
+
+#strikes{
+  text-align: center;
+  color: rgba(255,255,255,.88);
+  font-weight: 800;
+  letter-spacing: .04em;
+  margin-bottom: .9rem;
+  text-shadow: 0 2px 14px rgba(0,0,0,.8);
+}
+
+#moves{
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+}
+
+.moveBtn{
+  height: 64px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,.14);
+  font-size: 1.25rem;
+  font-weight: 900;
+  letter-spacing: .03em;
+  color: rgba(255,255,255,.95);
+  box-shadow:
+    0 12px 26px rgba(0,0,0,.55),
+    inset 0 1px 0 rgba(255,255,255,.10);
+  transition: transform .08s ease, filter .08s ease;
+}
+
+.moveBtn:active{
+  transform: translateY(1px) scale(.99);
+  filter: brightness(.98);
+}
+
+.moveAttack{
+  background: linear-gradient(to bottom, rgba(145,50,35,.95), rgba(92,22,16,.95));
+}
+.moveDefend{
+  background: linear-gradient(to bottom, rgba(70,70,78,.95), rgba(38,38,44,.95));
+}
+.moveHeal{
+  background: linear-gradient(to bottom, rgba(25,110,55,.95), rgba(12,60,30,.95));
+}
+
+@media (max-width: 780px){
+  #hudRow{ grid-template-columns: 1fr; }
+  #moves{ grid-template-columns: 1fr; }
+  .moveBtn{ height: 58px; }
+  #friendlyTeam img,#enemyTeam img{ height: min(46vh, 420px); }
 }

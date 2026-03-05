@@ -173,3 +173,10 @@
 #fight:hover{
   box-shadow: 0 0 26px rgba(255,200,0,0.85);
 }
+
+#fight:disabled{
+  opacity: .55;
+  cursor:not-allowed;
+  transform:none;
+  box-shadow:none;
+}

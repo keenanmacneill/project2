@@ -36,7 +36,7 @@ export default function Team() {
         <h3 id='max'>Team Level {team.map(c => c.level).reduce((sum, accum) => sum + accum, 0)} / 55</h3>
         <div id='options'>
           <button id='clear' onClick={clearTeam}>Clear Team</button>
-          <button id='fight' onClick={fight}>Fight!</button>
+          <button id='fight' onClick={fight} disabled={team.length === 0}>Fight!</button>
         </div>
       </div>
     </>
