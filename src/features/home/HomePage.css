@@ -1,7 +1,7 @@
 #browse{
   display: flex;
   flex-flow: row wrap;
-  gap:1rem;
+  gap: 1rem;
   justify-content: center;
 }
 
@@ -12,7 +12,7 @@
 }
 
 #random {
-  width:16rem;
+  width: 16rem;
   height: 2.5rem;
   font-size: 1.5rem;
   display: flex;

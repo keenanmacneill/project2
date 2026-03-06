@@ -7,10 +7,19 @@ export default function CharacterDetails() {
   const { characterDetails } = useContext(AppContext)
   const { name, ki, maxKi, race, gender, description, image, affiliation, level } = characterDetails
   const { setTeam, team } = useContext(AppContext)
-
   const inTeam = team.some(char => char.name === name)
   const teamFull = team.length >= 2
   const canAdd = characterDetails.level + team.map(c => c.level).reduce((sum, accum) => sum + accum, 0) <= 55
+  const checkDisabled = !inTeam && (teamFull || !canAdd)
+
+  const checkTeam =
+    inTeam
+      ? 'Remove from Team'
+      : teamFull
+        ? 'Team is full'
+        : !canAdd
+          ? 'Level too high'
+          : 'Add to Team'
 
   const handleClick = () => {
     inTeam
@@ -22,26 +31,13 @@ export default function CharacterDetails() {
     localStorage.setItem("team", JSON.stringify(team))
   }, [team])
 
-  const checkTeam =
-    inTeam
-      ? 'Remove from Team'
-      : teamFull
-        ? 'Team is full'
-        : !canAdd
-          ? 'Level too high'
-          : 'Add to Team'
-
-  const checkDisabled = !inTeam && (teamFull || !canAdd)
-
   return (
     <>
       <AppendedHeader />
       <div id='characterDetailsContainer'>
         <div id="detailsTopBar">
           <h1 id="detailsName">{name}</h1>
-          <button id='add' onClick={handleClick} disabled={checkDisabled}>
-            {checkTeam}
-          </button>
+          <button id='add' onClick={handleClick} disabled={checkDisabled}>{checkTeam}</button>
         </div>
 
         <div id="characterDetails">

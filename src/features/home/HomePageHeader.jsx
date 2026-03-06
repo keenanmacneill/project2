@@ -15,7 +15,7 @@ export default function HomePageHeader() {
   return (
     <div id='homePageHeader'>
       <p id='headerTitle'>PATH TO POWER</p>
-      <input id='searchBar' type="search" placeholder="Search Characters..." value={searchValue} onChange={updateSearchValue} onKeyDown={(e) => e.key === "Enter" && setSearch(searchValue)} />
+      <input id='searchBar' type="search" placeholder="Search Characters..." value={searchValue} onChange={updateSearchValue} onKeyDown={e => e.key === "Enter" && setSearch(searchValue)} />
       <div id='filterContainer'>
         <button id='search' onClick={() => setSearch(searchValue)}>Search</button>
         <div id='selectWrap'>

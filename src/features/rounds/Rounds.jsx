@@ -15,9 +15,10 @@ export default function Rounds() {
   const currBackground = backgrounds[round - 1];
   const navigate = useNavigate();
   const quit = () => navigate("/myteam");
+
   const makeFighter = (c) => {
     const { maxKi } = c;
-    const rating = Math.log10(maxKi + 1);
+    const rating = Math.round(Math.log10(maxKi + 1));
     const maxHP = Math.round(80 + rating * 35);
     const atk = Math.round(10 + rating * 6);
     const def = Math.round(6 + rating * 3);

@@ -6,6 +6,7 @@ export default function TeamMember({ character }) {
   const { setCharacterDetails } = useContext(AppContext)
   const { name, image } = character
   const navigate = useNavigate()
+
   const handleClick = () => {
     localStorage.setItem("details", JSON.stringify(character))
     setCharacterDetails(character)

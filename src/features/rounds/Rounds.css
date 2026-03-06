@@ -94,8 +94,8 @@
   font-weight: 800;
   font-size: 1.15rem;
   text-shadow: 0 2px 14px rgba(0,0,0,.85);
-  white-space: nowrap;
   overflow: hidden;
+  white-space: nowrap;
   text-overflow: ellipsis;
 }
 
@@ -253,5 +253,5 @@
   #hudRow{ grid-template-columns: 1fr; }
   #moves{ grid-template-columns: 1fr; }
   .moveBtn{ height: 58px; }
-  #friendlyTeam img,#enemyTeam img{ height: min(46vh, 420px); }
+  #friendlyTeam img, #enemyTeam img{ height: min(46vh, 420px); }
 }

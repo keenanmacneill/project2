@@ -8,10 +8,12 @@ import "./Team.css"
 export default function Team() {
   const { team, setTeam } = useContext(AppContext)
   const navigate = useNavigate()
+
   const clearTeam = () => {
     localStorage.setItem("team", JSON.stringify([]))
     setTeam([])
   }
+
   const fight = () => {
     navigate('/fight')
   }
@@ -22,15 +24,11 @@ export default function Team() {
       <div id='teamContainer'>
         <h1>My Team</h1>
         <div id='teamGallery'>
-          {[...Array(2)].map((_, i) => {
+          {[0, 1].map(i => {
             const member = team[i]
             return member
               ? <TeamMember key={member.name} character={member} />
-              : (
-                <div key={i} className="teamEmptySlot">
-                  <p>Empty Slot</p>
-                </div>
-              )
+              : (<div key={i} className="teamEmptySlot"><p>Empty Slot</p></div>)
           })}
         </div>
         <h3 id='max'>Team Level {team.map(c => c.level).reduce((sum, accum) => sum + accum, 0)} / 55</h3>

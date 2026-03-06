@@ -3,6 +3,7 @@ import './headers.css'
 
 export default function AppendedHeader() {
   const navigate = useNavigate()
+
   const handleClick = () => {
     navigate('/')
   }
