@@ -46,19 +46,17 @@ export default function Rounds() {
   useEffect(() => {
     if (!characters?.length || !team?.length) return;
 
-    const teamIds = new Set(team.map((t) => t.id));
-    const pool = characters.filter((c) => c && !teamIds.has(c.id));
-    if (!pool.length) return;
-
+    const teamIds = team.map(t => t.id);
+    //no team members on enemy team
+    const pool = characters.filter(c => !teamIds.includes(c.id));
     const shuffled = [...pool].sort(() => Math.random() - 0.5);
     const enemies = shuffled.slice(0, 2).map(makeFighter);
     setEnemyTeam(enemies);
   }, [characters, team]);
 
   const sums = useMemo(() => {
-    const sum = (arr, k) => arr.reduce((s, a) => s + (a?.[k] ?? 0), 0);
-    const sumMax = (arr) => arr.reduce((s, a) => s + (a?.stats?.maxHP ?? 0), 0);
-
+    const sum = (arr, key) => arr.reduce((s, a) => s + a[key], 0);
+    const sumMax = arr => arr.reduce((s, a) => s + a.stats.maxHP, 0);
     const fHP = sum(friendlyTeam, "hp");
     const eHP = sum(enemyTeam, "hp");
     const fMax = sumMax(friendlyTeam);
@@ -77,26 +75,23 @@ export default function Rounds() {
       eMax,
       fPct: clampPct(fHP, fMax),
       ePct: clampPct(eHP, eMax),
-      fName: friendlyTeam.map((c) => c?.name).filter(Boolean).join(" • "),
-      eName: enemyTeam.map((c) => c?.name).filter(Boolean).join(" • "),
+      fName: friendlyTeam.map(c => c.name).filter(Boolean).join(" • "),
+      eName: enemyTeam.map(c => c.name).filter(Boolean).join(" • "),
     };
   }, [friendlyTeam, enemyTeam]);
 
   return (
     <div id="roundContainer" style={{ backgroundImage: `url(${currBackground})` }}>
       <div id="screenVignette" />
-
       <div id="roundHeader">
         <h1 id="roundTitle">Battle Round {round} of 3</h1>
         <button id="quit" onClick={quit}>Quit</button>
       </div>
-
       <div id="hudRow">
         <div className="hudCard hudLeft">
           <div className="hudTop">
-            <div className="hudName">{sums.fName || "—"}</div>
+            <div className="hudName">{sums.fName}</div>
           </div>
-
           <div className="hudHPRow">
             <span className="hudTag">HP</span>
             <div className="hpBar">
@@ -106,12 +101,10 @@ export default function Rounds() {
             <span className="hudValue">{(sums.fHP || 0).toLocaleString()}</span>
           </div>
         </div>
-
         <div className="hudCard hudRight">
           <div className="hudTop">
-            <div className="hudName">{sums.eName || "—"}</div>
+            <div className="hudName">{sums.eName}</div>
           </div>
-
           <div className="hudHPRow">
             <span className="hudTag">HP</span>
             <div className="hpBar">
@@ -122,7 +115,6 @@ export default function Rounds() {
           </div>
         </div>
       </div>
-
       <div id="arena">
         <div id="friendlyTeamContainer">
           <div id="friendlyTeam">
@@ -131,7 +123,6 @@ export default function Rounds() {
             ))}
           </div>
         </div>
-
         <div id="enemyTeamContainer">
           <div id="enemyTeam">
             {enemyTeam.map((c, i) => (
@@ -140,7 +131,6 @@ export default function Rounds() {
           </div>
         </div>
       </div>
-
       <div id="actionPanel">
         <div id='strikes'>Moves Remaining : {friendlyTeam.length}</div>
         <div id="moves">
