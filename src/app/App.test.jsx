@@ -5,7 +5,7 @@ import AppContext from "../context/AppContext"
 import HomePage from "../features/home/HomePage"
 import CharacterDetails from "../features/characterDetails/CharacterDetails"
 import Team from "../features/team/Team"
-import { renderWithProviders } from "../test/test-utils"
+import { renderWithProviders } from "../test/testUtils"
 
 vi.mock("./components/home/HomePageHeader", () => ({
   default: () => <div>Mock Home Header</div>,

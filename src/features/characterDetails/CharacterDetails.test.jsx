@@ -1,6 +1,6 @@
 import { screen, fireEvent } from "@testing-library/react"
 import CharacterDetails from "./CharacterDetails"
-import { renderWithProviders } from "../../test/test-utils"
+import { renderWithProviders } from "../../test/testUtils"
 
 vi.mock("../../shared/AppendedHeader", () => ({
   default: () => <div>Mock Header</div>,

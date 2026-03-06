@@ -2,13 +2,7 @@ import { render } from "@testing-library/react"
 import { MemoryRouter } from "react-router-dom"
 import AppContext from "../context/AppContext"
 
-export function renderWithProviders(
-  ui,
-  {
-    route = "/",
-    contextValue = {},
-  } = {}
-) {
+export function renderWithProviders(ui, { route = "/", contextValue = {}, } = {}) {
   const defaultContext = {
     characterDetails: null,
     setCharacterDetails: vi.fn(),
