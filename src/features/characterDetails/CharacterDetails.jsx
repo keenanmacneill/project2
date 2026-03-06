@@ -4,9 +4,8 @@ import AppendedHeader from "../../shared/AppendedHeader";
 import "./CharacterDetails.css"
 
 export default function CharacterDetails() {
-  const { characterDetails } = useContext(AppContext)
+  const { characterDetails, setTeam, team } = useContext(AppContext)
   const { name, ki, maxKi, race, gender, description, image, affiliation, level } = characterDetails
-  const { setTeam, team } = useContext(AppContext)
   const inTeam = team.some(char => char.name === name)
   const teamFull = team.length >= 2
   const canAdd = characterDetails.level + team.map(c => c.level).reduce((sum, accum) => sum + accum, 0) <= 55

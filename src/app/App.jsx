@@ -15,6 +15,7 @@ export default function App() {
           <Route path='/character/:name' element={<CharacterDetails />} />
           <Route path='/myteam' element={<Team />} />
           <Route path='/fight' element={<Rounds />} />
+          <Route path='*' element={<h1>404 - Not Found</h1>} />
         </Routes>
       </Router>
     </AppContextProvider>
