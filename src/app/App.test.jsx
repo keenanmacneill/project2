@@ -1,44 +1,64 @@
-import { screen, fireEvent } from "@testing-library/react"
-import HomePage from "../features/home/HomePage"
-import { renderWithProviders } from "../test/testUtils"
+import { render, screen, waitFor } from "@testing-library/react"
+import userEvent from "@testing-library/user-event"
+import App from "./App"
 
-describe("HomePage Random Button", () => {
+describe("App integration", () => {
+  const mockCharacters = [
+    {
+      id: 1,
+      name: "Goku",
+      image: "goku.png",
+      race: "Saiyan",
+      gender: "Male",
+      description: "A legendary fighter.",
+      affiliation: "Z Fighter",
+      ki: "9,000",
+      maxKi: "15,000",
+    },
+    {
+      id: 2,
+      name: "Vegeta",
+      image: "vegeta.png",
+      race: "Saiyan",
+      gender: "Male",
+      description: "Prince of all Saiyans.",
+      affiliation: "Z Fighter",
+      ki: "8,500",
+      maxKi: "14,500",
+    },
+  ]
 
   beforeEach(() => {
-    vi.spyOn(Storage.prototype, "setItem")
+    localStorage.clear()
+    vi.spyOn(global, "fetch").mockResolvedValue({
+      json: vi.fn().mockResolvedValue({ items: mockCharacters }),
+    })
   })
 
   afterEach(() => {
     vi.restoreAllMocks()
   })
 
-  it("selects a random character and saves it", () => {
-
-    const setCharacterDetails = vi.fn()
-
-    const characters = [
-      { id: 1, name: "Goku", ki: 9000, maxKi: 15000, level: 20 },
-      { id: 2, name: "Vegeta", ki: 8000, maxKi: 14000, level: 18 }
-    ]
-
+  it("loads characters, navigates to random character details, and adds to the team", async () => {
     vi.spyOn(Math, "random").mockReturnValue(0)
+    const user = userEvent.setup()
 
-    renderWithProviders(<HomePage />, {
-      contextValue: {
-        characters,
-        setCharacterDetails,
-        search: "",
-        sort: "asc"
-      }
+    render(<App />)
+
+    expect(await screen.findByText("Browse Characters")).toBeInTheDocument()
+
+    await user.click(screen.getByRole("button", { name: "Random Character!" }))
+
+    expect(await screen.findByRole("heading", { name: "Goku" })).toBeInTheDocument()
+
+    await user.click(screen.getByRole("button", { name: "Add to Team" }))
+    await user.click(screen.getByRole("button", { name: "My Team" }))
+
+    expect(await screen.findByRole("heading", { name: "My Team" })).toBeInTheDocument()
+    expect(screen.getByText(/Team Level 4 \/ 55/)).toBeInTheDocument()
+
+    await waitFor(() => {
+      expect(JSON.parse(localStorage.getItem("team"))).toHaveLength(1)
     })
-
-    fireEvent.click(screen.getByText("Random Character!"))
-
-    expect(setCharacterDetails).toHaveBeenCalledWith(characters[0])
-
-    expect(localStorage.setItem).toHaveBeenCalledWith(
-      "details",
-      JSON.stringify(characters[0])
-    )
   })
 })

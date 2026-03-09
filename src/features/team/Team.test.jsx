@@ -1,6 +1,6 @@
 import { screen, fireEvent } from "@testing-library/react"
 import Team from "./Team"
-import { renderWithProviders } from "../../test/testUtils"
+import { renderWithProviders } from "../../test/renderWithProviders"
 
 describe("Team", () => {
 

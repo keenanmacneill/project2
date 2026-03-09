@@ -1,6 +1,6 @@
 import { screen, fireEvent } from "@testing-library/react"
 import HomePage from "./HomePage"
-import { renderWithProviders } from "../../test/testUtils"
+import { renderWithProviders } from "../../test/renderWithProviders"
 
 const mockNavigate = vi.fn()
 

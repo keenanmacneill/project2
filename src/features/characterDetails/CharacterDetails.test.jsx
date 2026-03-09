@@ -1,6 +1,6 @@
 import { screen, fireEvent } from "@testing-library/react"
 import CharacterDetails from "./CharacterDetails"
-import { renderWithProviders } from "../../test/testUtils"
+import { renderWithProviders } from "../../test/renderWithProviders"
 
 const character = {
   name: "Goku",
@@ -15,7 +15,6 @@ const character = {
 }
 
 describe("CharacterDetails", () => {
-
   it("adds character to team", () => {
     const setTeam = vi.fn()
 
