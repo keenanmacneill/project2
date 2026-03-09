@@ -1,9 +1,9 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
-import HomePage from "../features/home/HomePage"
+import HomePage from "../components/home/HomePage"
 import AppContextProvider from "../context/AppContextProvider"
-import CharacterDetails from "../features/characterDetails/CharacterDetails"
-import Team from "../features/team/Team"
-import Rounds from "../features/rounds/Rounds"
+import CharacterDetails from "../components/characterDetails/CharacterDetails"
+import Team from "../components/team/Team"
+import Rounds from "../components/rounds/Rounds"
 
 export default function App() {
 

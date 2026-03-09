@@ -1,6 +1,6 @@
 import { useContext, useEffect } from "react"
 import AppContext from "../../context/AppContext"
-import AppendedHeader from "../../shared/AppendedHeader";
+import AppendedHeader from "../shared/AppendedHeader";
 import "./CharacterDetails.css"
 
 export default function CharacterDetails() {

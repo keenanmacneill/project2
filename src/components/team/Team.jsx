@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import AppendedHeader from "../../shared/AppendedHeader";
+import AppendedHeader from "../shared/AppendedHeader";
 import AppContext from "../../context/AppContext";
 import TeamMember from "./TeamMember";
 import "./Team.css"
